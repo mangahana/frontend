@@ -3,18 +3,19 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom';
 
 import { Root } from './components/Root';
 import {
-  HomePage
+  CatalogPage,
+  SingleTitlePage
 } from 'pages';
 
 export const App: FC = () => {
   const router = createBrowserRouter([
     {
-      path: '',
+      path: '', 
       element: <Root />,
       errorElement: <div>error</div>,
 
       children: [
-        { path: '/', element: <HomePage /> },
+        { path: '/:id', ...SingleTitlePage },
       ],
     }
   ]);
